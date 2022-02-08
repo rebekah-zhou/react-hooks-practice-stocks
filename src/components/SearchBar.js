@@ -1,6 +1,17 @@
 import React from "react";
 
-function SearchBar() {
+function SearchBar({ onAlphaChange, onPriceChange }) {
+  // const [isAlpha, setIsAlpha] = useState(false)
+
+  function handleAlphaChange() {
+    //setIsAlpha(() => !isAlpha)
+    onAlphaChange()
+  }
+
+  function handlePriceChange() {
+    onPriceChange()
+  }
+
   return (
     <div>
       <strong>Sort by:</strong>
@@ -10,7 +21,7 @@ function SearchBar() {
           value="Alphabetically"
           name="sort"
           checked={null}
-          onChange={null}
+          onChange={handleAlphaChange}
         />
         Alphabetically
       </label>
@@ -20,7 +31,7 @@ function SearchBar() {
           value="Price"
           name="sort"
           checked={null}
-          onChange={null}
+          onChange={handlePriceChange}
         />
         Price
       </label>
